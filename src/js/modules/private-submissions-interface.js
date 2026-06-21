@@ -77,7 +77,7 @@ function injectSubmissionModals() {
         <article class="private-submission-card">
           <button class="private-submission-close" type="button" data-close-private-submission aria-label="Close retailer collaboration form">&times;</button>
           <h2>Onboard my store</h2>
-          <p>For retailers who want LekkerDeal to monitor and index their public specials for shoppers.</p>
+          <p>For retailers who want LekkeDeal to monitor and index their public specials for shoppers.</p>
           <form id="retailerCollaborationForm" class="private-submission-form">
             <label>
               <span>Business name</span>
@@ -97,7 +97,7 @@ function injectSubmissionModals() {
             </label>
             <label class="private-submission-consent">
               <input name="dataAccessConsent" type="checkbox" required>
-              <span>I confirm that I am authorised to request LekkerDeal to access, monitor, index and display publicly available offer information from this store website for deal discovery and referral purposes.</span>
+              <span>I confirm that I am authorised to request LekkeDeal to access, monitor, index and display publicly available offer information from this store website for deal discovery and referral purposes.</span>
             </label>
             <button type="submit">Onboard my store</button>
             <p class="private-submission-status" id="retailerCollaborationStatus" aria-live="polite"></p>
@@ -107,7 +107,7 @@ function injectSubmissionModals() {
       <dialog class="private-submission-modal" id="contactMessageModal" hidden>
         <article class="private-submission-card">
           <button class="private-submission-close" type="button" data-close-private-submission aria-label="Close contact form">&times;</button>
-          <h2>Contact LekkerDeal</h2>
+          <h2>Contact LekkeDeal</h2>
           <p>Send us a message. You do not need an account for this form.</p>
           <form id="contactMessageForm" class="private-submission-form">
             <label>
@@ -136,57 +136,57 @@ function injectSubmissionModals() {
           <button class="private-submission-close" type="button" data-close-private-submission aria-label="Close terms">&times;</button>
           <h2>Terms &amp; Conditions</h2>
           <section class="terms-content">
-            <p>These Terms &amp; Conditions govern your use of LekkerDeal, including our website, app, deal listings, retailer links, alerts and community features. By accessing or using LekkerDeal, you agree to these Terms.</p>
-            <h3>1. What LekkerDeal Does</h3>
-            <p>LekkerDeal helps shoppers discover South African deals, specials, price drops, retailer offers, product information and retailer links.</p>
-            <p>LekkerDeal is a deal-discovery platform. Unless we clearly state otherwise, LekkerDeal is not the seller, supplier, manufacturer, courier, payment provider or warranty provider for products listed on the platform.</p>
+            <p>These Terms &amp; Conditions govern your use of LekkeDeal, including our website, app, deal listings, retailer links, alerts and community features. By accessing or using LekkeDeal, you agree to these Terms.</p>
+            <h3>1. What LekkeDeal Does</h3>
+            <p>LekkeDeal helps shoppers discover South African deals, specials, price drops, retailer offers, product information and retailer links.</p>
+            <p>LekkeDeal is a deal-discovery platform. Unless we clearly state otherwise, LekkeDeal is not the seller, supplier, manufacturer, courier, payment provider or warranty provider for products listed on the platform.</p>
             <p>Any purchase you make is made directly with the relevant retailer and is subject to that retailer's terms, policies and processes.</p>
             <h3>2. Deal Accuracy and Availability</h3>
             <p>Prices, discounts, stock availability, delivery fees, product specifications, promotions and retailer information may change without notice.</p>
-            <p>LekkerDeal does not guarantee that any listed price, discount, product detail, stock level or promotion will remain available or accurate at the time you visit the retailer's website.</p>
+            <p>LekkeDeal does not guarantee that any listed price, discount, product detail, stock level or promotion will remain available or accurate at the time you visit the retailer's website.</p>
             <p>You must confirm all final details, including the total price, delivery costs, stock availability, warranty terms and return policy, directly with the retailer before completing a purchase.</p>
             <h3>3. Retailer Links, Affiliate Links and Sponsored Content</h3>
-            <p>LekkerDeal may link to third-party retailer websites.</p>
-            <p>Some links may be affiliate, referral, tracking or sponsored links. LekkerDeal may earn commission, referral value or other compensation when you visit or purchase through certain links.</p>
+            <p>LekkeDeal may link to third-party retailer websites.</p>
+            <p>Some links may be affiliate, referral, tracking or sponsored links. LekkeDeal may earn commission, referral value or other compensation when you visit or purchase through certain links.</p>
             <p>This does not increase the price you pay unless clearly disclosed otherwise.</p>
-            <p>LekkerDeal is not responsible for a retailer's products, pricing, customer service, delivery, returns, refunds, warranties or any dispute between you and that retailer.</p>
+            <p>LekkeDeal is not responsible for a retailer's products, pricing, customer service, delivery, returns, refunds, warranties or any dispute between you and that retailer.</p>
             <h3>4. Accounts, Reviews and User Content</h3>
-            <p>Where LekkerDeal allows you to create an account, save deals, post reviews, replies, store requests or reports, you are responsible for the information and content you submit.</p>
-            <p>You may not submit content that is unlawful, misleading, abusive, defamatory, fraudulent, spammy, irrelevant, discriminatory or harmful to other users, retailers or LekkerDeal.</p>
-            <p>By posting public content on LekkerDeal, you grant LekkerDeal a non-exclusive, royalty-free licence to display, reproduce, moderate and use that content for operating and improving the platform.</p>
+            <p>Where LekkeDeal allows you to create an account, save deals, post reviews, replies, store requests or reports, you are responsible for the information and content you submit.</p>
+            <p>You may not submit content that is unlawful, misleading, abusive, defamatory, fraudulent, spammy, irrelevant, discriminatory or harmful to other users, retailers or LekkeDeal.</p>
+            <p>By posting public content on LekkeDeal, you grant LekkeDeal a non-exclusive, royalty-free licence to display, reproduce, moderate and use that content for operating and improving the platform.</p>
             <h3>5. Privacy and POPIA</h3>
-            <p>LekkerDeal processes personal information in accordance with applicable South African law, including the Protection of Personal Information Act 4 of 2013 (POPIA).</p>
+            <p>LekkeDeal processes personal information in accordance with applicable South African law, including the Protection of Personal Information Act 4 of 2013 (POPIA).</p>
             <p>Our Privacy Policy explains what information we collect, why we collect it, how we use it, who we may share it with, how long we retain it and how you may exercise your privacy rights.</p>
-            <p>Where required, LekkerDeal will obtain your consent before processing your personal information for a particular purpose.</p>
+            <p>Where required, LekkeDeal will obtain your consent before processing your personal information for a particular purpose.</p>
             <h3>6. Alerts and Marketing Communications</h3>
             <p>You may choose to receive deal alerts through email, WhatsApp, SMS or other supported channels.</p>
-            <p>Marketing communications are optional. By actively opting in, you consent to receive the selected communications from LekkerDeal.</p>
-            <p>You may unsubscribe or withdraw your consent at any time by contacting LekkerDeal.</p>
+            <p>Marketing communications are optional. By actively opting in, you consent to receive the selected communications from LekkeDeal.</p>
+            <p>You may unsubscribe or withdraw your consent at any time by contacting LekkeDeal.</p>
             <h3>7. Retailer Collaboration and Site Monitoring</h3>
-            <p>Retailers may submit requests for LekkerDeal to list, update, monitor, index or display publicly available offer information from their websites.</p>
+            <p>Retailers may submit requests for LekkeDeal to list, update, monitor, index or display publicly available offer information from their websites.</p>
             <p>A retailer submitting such a request confirms that it has authority to do so and that the information supplied is accurate.</p>
-            <p>LekkerDeal may remove, change or decline retailer listings where information appears inaccurate, misleading, outdated, unlawful or unsuitable for the platform.</p>
+            <p>LekkeDeal may remove, change or decline retailer listings where information appears inaccurate, misleading, outdated, unlawful or unsuitable for the platform.</p>
             <h3>8. Prohibited Use</h3>
-            <p>You may not misuse LekkerDeal forms, accounts or communications; impersonate another person or business; submit false, misleading or unlawful content; interfere with, attack, disrupt or attempt unauthorised access to LekkerDeal; scrape, copy or reproduce LekkerDeal content at scale without permission; or use LekkerDeal in a manner that harms shoppers, retailers, LekkerDeal or other users.</p>
+            <p>You may not misuse LekkeDeal forms, accounts or communications; impersonate another person or business; submit false, misleading or unlawful content; interfere with, attack, disrupt or attempt unauthorised access to LekkeDeal; scrape, copy or reproduce LekkeDeal content at scale without permission; or use LekkeDeal in a manner that harms shoppers, retailers, LekkeDeal or other users.</p>
             <h3>9. Moderation</h3>
-            <p>LekkerDeal may remove, hide, restrict or review content that we reasonably believe is abusive, misleading, unlawful, defamatory, duplicated, irrelevant, spammy or harmful to the shopping experience.</p>
-            <p>We may suspend or terminate access to LekkerDeal where a user repeatedly or seriously breaches these Terms.</p>
+            <p>LekkeDeal may remove, hide, restrict or review content that we reasonably believe is abusive, misleading, unlawful, defamatory, duplicated, irrelevant, spammy or harmful to the shopping experience.</p>
+            <p>We may suspend or terminate access to LekkeDeal where a user repeatedly or seriously breaches these Terms.</p>
             <h3>10. Intellectual Property</h3>
-            <p>LekkerDeal's name, logo, branding, design, software, text, databases and original content belong to LekkerDeal or its licensors.</p>
-            <p>You may use LekkerDeal for personal and lawful shopping purposes only. You may not copy, reproduce, distribute, sell or commercially exploit LekkerDeal content without written permission.</p>
+            <p>LekkeDeal's name, logo, branding, design, software, text, databases and original content belong to LekkeDeal or its licensors.</p>
+            <p>You may use LekkeDeal for personal and lawful shopping purposes only. You may not copy, reproduce, distribute, sell or commercially exploit LekkeDeal content without written permission.</p>
             <p>Retailer names, logos, product images and trademarks remain the property of their respective owners.</p>
             <h3>11. Disclaimer and Liability</h3>
-            <p>LekkerDeal provides deal information as general shopping guidance.</p>
+            <p>LekkeDeal provides deal information as general shopping guidance.</p>
             <p>We do not guarantee uninterrupted access to the platform, perfect data accuracy, retailer performance, stock availability, delivery outcomes, product quality or savings.</p>
-            <p>To the fullest extent permitted by law, LekkerDeal will not be liable for loss arising from your use of retailer websites, retailer purchases, inaccurate third-party information, unavailable deals or decisions made in reliance on platform content.</p>
+            <p>To the fullest extent permitted by law, LekkeDeal will not be liable for loss arising from your use of retailer websites, retailer purchases, inaccurate third-party information, unavailable deals or decisions made in reliance on platform content.</p>
             <p>Nothing in these Terms excludes or limits any liability or consumer right that cannot lawfully be excluded or limited.</p>
             <h3>12. Changes to These Terms</h3>
-            <p>LekkerDeal may update these Terms from time to time.</p>
-            <p>The latest version will be published on the platform. Continued use of LekkerDeal after changes take effect means you accept the revised Terms.</p>
+            <p>LekkeDeal may update these Terms from time to time.</p>
+            <p>The latest version will be published on the platform. Continued use of LekkeDeal after changes take effect means you accept the revised Terms.</p>
             <h3>13. Governing Law</h3>
             <p>These Terms are governed by the laws of the Republic of South Africa.</p>
             <h3>14. Contact Us</h3>
-            <p>For questions, complaints, privacy requests or retailer enquiries, use the <a href="#" data-contact-form>Contact LekkerDeal</a> form.</p>
+            <p>For questions, complaints, privacy requests or retailer enquiries, use the <a href="#" data-contact-form>Contact LekkeDeal</a> form.</p>
           </section>
         </article>
       </dialog>

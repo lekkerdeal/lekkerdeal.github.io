@@ -1,7 +1,7 @@
-const TOKEN_KEY = "lekkerdeal_auth_token";
+const TOKEN_KEY = "lekkedeal_auth_token";
 
 export function getApiBaseUrl() {
-  return window.LEKKERDEAL_CONFIG?.API_BASE_URL || "http://127.0.0.1:4100/api";
+  return window.LEKKEDEAL_CONFIG?.API_BASE_URL || "http://127.0.0.1:4100/api";
 }
 
 export function getAuthToken() {
@@ -36,7 +36,7 @@ export async function apiRequest(path, options = {}) {
     });
   } catch (error) {
     const apiError = new Error(
-      "LekkerDeal API is offline. Start the backend server and try again.",
+      "LekkeDeal API is offline. Start the backend server and try again.",
     );
     apiError.status = 0;
     apiError.code = "API_OFFLINE";

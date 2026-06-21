@@ -1,7 +1,7 @@
 {
-    "name": "LekkerDeal",
-    "short_name": "LekkerDeal",
-    "description": "South African weekly lekker deals across tech, appliances, DIY, fashion, baby, and essentials.",
+    "name": "LekkeDeal",
+    "short_name": "LekkeDeal",
+    "description": "South African weekly lekke deals across tech, appliances, DIY, fashion, baby, and essentials.",
     "start_url": "index.html",
     "scope": "./",
     "display": "standalone",

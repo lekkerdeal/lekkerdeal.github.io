@@ -120,7 +120,7 @@ function bindEvents() {
   });
   elements.mobileInstallButton?.addEventListener("click", () => {
     closeMobileMenu();
-    window.dispatchEvent(new CustomEvent("lekkerdeal:install-requested"));
+    window.dispatchEvent(new CustomEvent("lekkedeal:install-requested"));
   });
   elements.mobileNavDrawer?.addEventListener("click", (event) => {
     if (event.target.closest("a[href]")) closeMobileMenu();
@@ -539,7 +539,7 @@ function normalizeApiReview(review) {
   return {
     id: review._id || review.id,
     userId: String(review.userId || ""),
-    name: review.authorName || "LekkerDeal shopper",
+    name: review.authorName || "LekkeDeal shopper",
     province: review.authorProvince || "",
     type: review.reviewType || "general",
     rating: Number(review.rating) || 5,
@@ -562,7 +562,7 @@ function normalizeApiReply(reply) {
   return {
     id: reply._id || reply.id,
     userId: String(reply.userId || ""),
-    authorName: reply.authorName || "LekkerDeal shopper",
+    authorName: reply.authorName || "LekkeDeal shopper",
     body: reply.body || "",
     likes: Number(reply.likes ?? reply.likedBy?.length) || 0,
     dislikes: Number(reply.dislikes ?? reply.dislikedBy?.length) || 0,

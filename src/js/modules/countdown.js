@@ -10,7 +10,7 @@ function updateRaidCountdown(elements) {
   const diffMs = Math.max(0, nextDrop - now);
   const days = Math.floor(diffMs / 86400000);
   const hours = Math.floor((diffMs % 86400000) / 3600000);
-  const countdownLabel = `Next Lekker Drop in: ${days} Days ${hours} Hours`;
+  const countdownLabel = `Next Lekke Drop in: ${days} Days ${hours} Hours`;
   if (elements.raidCountdown) elements.raidCountdown.textContent = countdownLabel;
   if (elements.mobileRaidCountdown) {
     elements.mobileRaidCountdown.textContent = countdownLabel;

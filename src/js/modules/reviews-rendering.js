@@ -56,7 +56,7 @@ function renderTabs(activeFilter, container) {
 
 function renderList(reviews, container, state = {}) {
   if (!reviews.length) {
-    container.innerHTML = `<p class="review-empty">No reviews in this view yet. Add the first one and help shape the next LekkerDeal feature.</p>`;
+    container.innerHTML = `<p class="review-empty">No reviews in this view yet. Add the first one and help shape the next LekkeDeal feature.</p>`;
     return;
   }
 
@@ -110,7 +110,7 @@ function renderReplies(review, user) {
         .map(
           (reply) => `
             <article class="review-reply" data-reply-id="${escapeAttr(reply.id || reply._id || "")}">
-              <strong>${escapeHtml(reply.authorName || "LekkerDeal shopper")}</strong>
+              <strong>${escapeHtml(reply.authorName || "LekkeDeal shopper")}</strong>
               <p>${escapeHtml(reply.body || "")}</p>
               <nav class="review-reply-actions" aria-label="Reply actions">
                 <button type="button" data-reply-action="like">Like ${formatNumber(reply.likes || 0)}</button>

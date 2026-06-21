@@ -8,9 +8,9 @@ export async function handleShareDeal(event, dealId, { dealById }) {
 
   const price = formatPrice(deal.current_price);
   const shareUrl = buildDealSiteUrl(deal);
-  const shareText = `${deal.title} - ${price} - ${deal.retailer}. See this deal on LekkerDeal.`;
+  const shareText = `${deal.title} - ${price} - ${deal.retailer}. See this deal on LekkeDeal.`;
   const shareData = {
-    title: `${deal.title} | LekkerDeal`,
+    title: `${deal.title} | LekkeDeal`,
     text: shareText,
     url: shareUrl,
   };

@@ -254,7 +254,7 @@ function bindEvents() {
   });
   els.mobileInstallButton?.addEventListener("click", () => {
     closeMobileMenu();
-    window.dispatchEvent(new CustomEvent("lekkerdeal:install-requested"));
+    window.dispatchEvent(new CustomEvent("lekkedeal:install-requested"));
   });
   els.mobileNavDrawer?.addEventListener("click", (event) => {
     const link = event.target.closest("a[href]");
@@ -493,7 +493,7 @@ async function loadDeals() {
     applyFilters();
     refreshReviewCountsFromApi();
   } catch (error) {
-    console.error("Could not load LekkerDeal data", error);
+    console.error("Could not load LekkeDeal data", error);
     state.allDeals = [];
     state.filteredDeals = [];
     state.dataUpdatedAt = "";

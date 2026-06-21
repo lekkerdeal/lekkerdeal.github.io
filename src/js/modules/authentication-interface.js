@@ -25,10 +25,10 @@ const authState = {
   listeners: new Set(),
 };
 const OTP_COOLDOWN_MS = 5 * 60 * 1000;
-const OTP_COOLDOWN_STORAGE_PREFIX = "lekkerdeal_otp_cooldown_until_";
+const OTP_COOLDOWN_STORAGE_PREFIX = "lekkedeal_otp_cooldown_until_";
 const otpCooldownTimers = new Map();
-const REGISTER_LOCK_KEY = "lekkerdeal_register_lock_until";
-const REGISTER_ATTEMPTS_KEY = "lekkerdeal_register_failed_otp_attempts";
+const REGISTER_LOCK_KEY = "lekkedeal_register_lock_until";
+const REGISTER_ATTEMPTS_KEY = "lekkedeal_register_failed_otp_attempts";
 const REGISTER_LOCK_MS = 24 * 60 * 60 * 1000;
 const PROVINCE_OPTIONS = [
   "Eastern Cape",
@@ -115,7 +115,7 @@ function injectAuthModal() {
         <dialog class="auth-modal" id="authModal" hidden aria-labelledby="authTitle">
             <article class="auth-card">
                 <button class="auth-close" id="authClose" type="button" aria-label="Close account modal">&times;</button>
-                <img class="auth-logo" src="assets/logo.png" alt="LekkerDeal">
+                <img class="auth-logo" src="assets/logo.png" alt="LekkeDeal">
                 <h2 id="authTitle">Account</h2>
                 <p class="auth-copy">Save deals, post reviews, and manage alerts with your phone number and password.</p>
                 <nav class="auth-tabs" aria-label="Account form options">
@@ -468,7 +468,7 @@ async function handleResetOtp(event) {
     successMessage: "Password reset OTP sent.",
     action: async () => {
       const result = await requestPasswordResetOtp(phoneNumber);
-      localStorage.setItem("lekkerdeal_pending_reset_phone", phoneNumber);
+      localStorage.setItem("lekkedeal_pending_reset_phone", phoneNumber);
       return result;
     },
   });
@@ -481,7 +481,7 @@ async function handleResetOtpVerify(event) {
   event.preventDefault();
   const data = formData(event.currentTarget);
   const phoneNumber =
-    localStorage.getItem("lekkerdeal_pending_reset_phone") || "";
+    localStorage.getItem("lekkedeal_pending_reset_phone") || "";
   await runAuthAction(
     async () => {
       const result = await verifyPasswordResetOtp({
@@ -489,7 +489,7 @@ async function handleResetOtpVerify(event) {
         code: sanitizeOtp(data.code),
       });
       sessionStorage.setItem(
-        "lekkerdeal_password_reset_token",
+        "lekkedeal_password_reset_token",
         result.resetToken || "",
       );
       setResetStep("password");
@@ -504,14 +504,14 @@ async function handleResetPassword(event) {
   if (!validateMatchingPasswords(event.currentTarget)) return;
   const data = formData(event.currentTarget);
   const resetToken =
-    sessionStorage.getItem("lekkerdeal_password_reset_token") || "";
+    sessionStorage.getItem("lekkedeal_password_reset_token") || "";
   await runAuthAction(async () => {
     await resetPassword({
       resetToken,
       password: data.password,
     });
-    localStorage.removeItem("lekkerdeal_pending_reset_phone");
-    sessionStorage.removeItem("lekkerdeal_password_reset_token");
+    localStorage.removeItem("lekkedeal_pending_reset_phone");
+    sessionStorage.removeItem("lekkedeal_password_reset_token");
     logoutAccount();
     authState.user = null;
     setAuthMode("login");

@@ -1,7 +1,7 @@
 import { ALLOWED_PROVINCES } from "./application-config.js";
 import { cleanValue, sanitizeProvince, titleCase } from "./text-sanitization.js";
 
-const REVIEWS_KEY = "lekkerdeal_reviews_v1";
+const REVIEWS_KEY = "lekkedeal_reviews_v1";
 const MAX_COMMENT_LENGTH = 280;
 
 export const REVIEW_TYPES = [
@@ -111,7 +111,7 @@ export function buildReviewFromForm(form, user = {}) {
   if (!rating) errors.push("Choose a rating.");
   if (comment.length < 12)
     errors.push("Write a little more so the feedback is useful.");
-  if (!consent) errors.push("Confirm that LekkerDeal may store this review.");
+  if (!consent) errors.push("Confirm that LekkeDeal may store this review.");
 
   if (errors.length) return { errors };
 

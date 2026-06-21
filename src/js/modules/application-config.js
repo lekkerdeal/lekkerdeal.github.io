@@ -1,12 +1,12 @@
 export const DATA_URL = `data/all_deals.json?v=${Date.now()}`;
-export const SAVED_KEY = "lekkerdeal_saved_deals";
-export const SAVED_PRODUCT_KEYS_KEY = "lekkerdeal_saved_product_keys";
+export const SAVED_KEY = "lekkedeal_saved_deals";
+export const SAVED_PRODUCT_KEYS_KEY = "lekkedeal_saved_product_keys";
 export const LEGACY_SAVED_KEY = `deal${"raiders"}_saved_deals`;
-export const CAPTURE_KEY = "lekkerdeal_data_capture";
-export const VIEW_CLICK_KEY = "lekkerdeal_view_deal_clicks";
-export const CAPTURE_DISMISSED_KEY = "lekkerdeal_capture_dismissed_session";
+export const CAPTURE_KEY = "lekkedeal_data_capture";
+export const VIEW_CLICK_KEY = "lekkedeal_view_deal_clicks";
+export const CAPTURE_DISMISSED_KEY = "lekkedeal_capture_dismissed_session";
 export const CAPTURE_DELAY_MS = 5 * 60 * 1000;
-export const SITE_URL = "https://lekkerdeal.co.za/";
+export const SITE_URL = "https://lekkedeal.co.za/";
 export const PAGE_SIZE = 24;
 export const AUTO_LOAD_BATCH_LIMIT = 0;
 export const WORKER_URL = "src/js/dealFilteringWorker.js";
