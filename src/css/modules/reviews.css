@@ -820,31 +820,37 @@ body.reviews-page {
     overflow: hidden;
   }
 
-  body.mobile-menu-open::before {
+  body.reviews-page.mobile-menu-open::before {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: 1290;
+    z-index: 9998;
     background: rgba(15, 23, 42, 0.38);
   }
 
-  .review-nav-drawer {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1300;
-    display: grid;
+  body.reviews-page > .review-nav-drawer {
+    position: fixed !important;
+    inset: 0 0 0 auto !important;
+    z-index: 9999 !important;
+    display: grid !important;
     grid-template-rows: auto auto 1fr auto;
     gap: 12px;
-    width: min(304px, calc(100vw - 32px));
+    width: min(304px, calc(100dvw - 20px));
+    height: 100dvh;
+    max-height: 100dvh;
     padding: 14px;
     border-left: 1px solid var(--line);
     background: #ffffff;
     box-shadow: -20px 0 48px rgba(15, 23, 42, 0.24);
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
   }
 
-  .review-nav-drawer[hidden] {
+  body.reviews-page > .review-nav-drawer[hidden] {
     display: none !important;
   }
 

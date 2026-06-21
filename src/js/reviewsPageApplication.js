@@ -87,6 +87,9 @@ function bindElements() {
   elements.mobileMenuButton = document.querySelector("#reviewMobileMenuButton");
   elements.mobileMenuClose = document.querySelector("#reviewMobileMenuClose");
   elements.mobileNavDrawer = document.querySelector("#reviewMobileNavDrawer");
+  if (elements.mobileNavDrawer?.parentElement !== document.body) {
+    document.body.append(elements.mobileNavDrawer);
+  }
   elements.mobileLoginButton = document.querySelector("#reviewMobileLoginButton");
   elements.mobileRegisterButton = document.querySelector(
     "#reviewMobileRegisterButton",
