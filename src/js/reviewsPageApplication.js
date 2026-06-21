@@ -126,8 +126,17 @@ function bindEvents() {
     window.dispatchEvent(new CustomEvent("lekkedeal:install-requested"));
   });
   elements.mobileNavDrawer?.addEventListener("click", (event) => {
-    if (event.target.closest("a[href]")) closeMobileMenu();
+    if (
+      event.target.closest(
+        "a[href], [data-report-deal-id], [data-retailer-collaboration], [data-contact-form]",
+      )
+    ) {
+      closeMobileMenu();
+    }
   });
+  window.addEventListener("resize", positionReviewDrawer);
+  window.visualViewport?.addEventListener("resize", positionReviewDrawer);
+  window.visualViewport?.addEventListener("scroll", positionReviewDrawer);
   document.addEventListener("click", handleMobileMenuOutsideClick);
   elements.tabs?.addEventListener("click", (event) => {
     const button = event.target.closest("[data-filter]");
@@ -143,6 +152,7 @@ function bindEvents() {
 function openMobileMenu() {
   if (!elements.mobileNavDrawer || !elements.mobileMenuButton) return;
   elements.mobileNavDrawer.hidden = false;
+  positionReviewDrawer();
   elements.mobileMenuButton.setAttribute("aria-expanded", "true");
   document.body.classList.add("mobile-menu-open");
 }
@@ -152,6 +162,22 @@ function closeMobileMenu() {
   elements.mobileNavDrawer.hidden = true;
   elements.mobileMenuButton.setAttribute("aria-expanded", "false");
   document.body.classList.remove("mobile-menu-open");
+}
+
+function positionReviewDrawer() {
+  const drawer = elements.mobileNavDrawer;
+  if (!drawer || drawer.hidden) return;
+  const viewport = window.visualViewport;
+  const viewportWidth = viewport?.width || window.innerWidth;
+  const viewportHeight = viewport?.height || window.innerHeight;
+  const viewportLeft = viewport?.offsetLeft || 0;
+  const viewportTop = viewport?.offsetTop || 0;
+  const drawerWidth = Math.min(304, Math.max(210, viewportWidth - 20));
+
+  drawer.style.setProperty("--review-drawer-left", `${viewportLeft + viewportWidth - drawerWidth}px`);
+  drawer.style.setProperty("--review-drawer-top", `${viewportTop}px`);
+  drawer.style.setProperty("--review-drawer-width", `${drawerWidth}px`);
+  drawer.style.setProperty("--review-drawer-height", `${viewportHeight}px`);
 }
 
 function handleMobileMenuOutsideClick(event) {

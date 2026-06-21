@@ -830,14 +830,17 @@ body.reviews-page {
 
   body.reviews-page > .review-nav-drawer {
     position: fixed !important;
-    inset: 0 0 0 auto !important;
+    top: var(--review-drawer-top, 0) !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: var(--review-drawer-left, 0) !important;
     z-index: 9999 !important;
     display: grid !important;
     grid-template-rows: auto auto 1fr auto;
     gap: 12px;
-    width: min(304px, calc(100dvw - 20px));
-    height: 100dvh;
-    max-height: 100dvh;
+    width: var(--review-drawer-width, min(304px, calc(100vw - 20px))) !important;
+    height: var(--review-drawer-height, 100dvh) !important;
+    max-height: var(--review-drawer-height, 100dvh);
     padding: 14px;
     border-left: 1px solid var(--line);
     background: #ffffff;
@@ -852,6 +855,24 @@ body.reviews-page {
 
   body.reviews-page > .review-nav-drawer[hidden] {
     display: none !important;
+  }
+
+  .review-nav-drawer .review-support-action.is-report {
+    border-color: #fecdd3;
+    background: #fff7f7;
+    color: #b4232f;
+  }
+
+  .review-nav-drawer .review-support-action.is-onboard {
+    border-color: #b8ddba;
+    background: #f4fbf4;
+    color: #24772c;
+  }
+
+  .review-nav-drawer .review-support-action.is-contact {
+    border-color: #b8cff0;
+    background: #f5f9ff;
+    color: #1259a7;
   }
 
   .review-shell {

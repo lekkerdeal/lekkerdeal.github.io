@@ -1,4 +1,4 @@
-const CACHE_VERSION = "lekkedeal-v203";
+const CACHE_VERSION = "lekkedeal-v205";
 const APP_SHELL = [
     "./",
     "index.html",
