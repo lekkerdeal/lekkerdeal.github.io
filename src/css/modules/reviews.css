@@ -351,6 +351,14 @@ body.reviews-page {
 
 .rating-row input {
   position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
   opacity: 0;
   pointer-events: none;
 }
@@ -371,6 +379,11 @@ body.reviews-page {
   border-color: var(--red);
   background: #fff1f2;
   color: var(--red);
+}
+
+.rating-row input:focus-visible + span {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(11, 103, 216, 0.16);
 }
 
 .review-consent {
