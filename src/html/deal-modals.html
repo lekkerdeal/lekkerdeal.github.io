@@ -1,0 +1,115 @@
+﻿<dialog class="data-modal" id="dataCaptureModal" hidden aria-labelledby="dataCaptureTitle">
+  <form class="data-modal-card" id="dataCaptureForm" method="dialog">
+    <button
+      class="modal-close-button"
+      id="dataCaptureClose"
+      type="button"
+      aria-label="Close data capture modal"
+    >
+      <span aria-hidden="true"></span>
+    </button>
+    <img class="modal-mascot" src="assets/icon.png" alt="LekkerDeal mascot" />
+    <p class="modal-kicker">Unlock lekker picks</p>
+    <h2 id="dataCaptureTitle">Lekker deals, brought by lekkie</h2>
+    <p class="modal-copy">Tell lekkie where to send the best deal alerts !</p>
+
+    <label class="floating-field">
+      <input
+        id="nameInput"
+        name="nameInput"
+        type="text"
+        autocomplete="given-name"
+        placeholder=" "
+        minlength="2"
+        maxlength="40"
+        pattern="[A-Za-z]{2,40}"
+        required
+      />
+      <span>Name</span>
+    </label>
+    <label class="floating-field phone-field">
+      <input
+        id="whatsappPhone"
+        name="whatsappPhone"
+        type="tel"
+        inputmode="numeric"
+        autocomplete="tel"
+        placeholder=" "
+        minlength="10"
+        maxlength="10"
+        pattern="0[0-9]{9}"
+        required
+      />
+      <span>WhatsApp number</span>
+    </label>
+    <label class="floating-field">
+      <select id="provinceCity" name="provinceCity" required>
+        <option value="" selected></option>
+        <option value="Eastern Cape">Eastern Cape</option>
+        <option value="Free State">Free State</option>
+        <option value="Gauteng">Gauteng</option>
+        <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+        <option value="Limpopo">Limpopo</option>
+        <option value="Mpumalanga">Mpumalanga</option>
+        <option value="Northern Cape">Northern Cape</option>
+        <option value="North West">North West</option>
+        <option value="Western Cape">Western Cape</option>
+      </select>
+      <span>Province</span>
+    </label>
+    <label class="floating-field">
+      <input
+        id="cityInput"
+        name="cityInput"
+        type="text"
+        autocomplete="address-level2"
+        placeholder=" "
+        minlength="2"
+        maxlength="60"
+        pattern="[A-Za-z ]{2,60}"
+        required
+      />
+      <span>City</span>
+    </label>
+    <label class="consent-row">
+      <input id="popiaConsent" name="popiaConsent" type="checkbox" required />
+      <span>
+        I consent to LekkerDeal using my details to send deal alerts and related
+        marketing, in line with POPIA and our Privacy Policy.
+      </span>
+    </label>
+    <button class="primary-action modal-submit" type="submit">Sign me up</button>
+  </form>
+</dialog>
+
+<dialog class="image-viewer" id="imageViewer" hidden aria-labelledby="imageViewerTitle">
+  <article class="image-viewer-card">
+    <button
+      class="image-viewer-close"
+      id="imageViewerClose"
+      type="button"
+      aria-label="Close image viewer"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <header class="image-viewer-meta">
+      <span class="image-viewer-retailer" id="imageViewerRetailer">Retailer</span>
+      <h2 id="imageViewerTitle">Deal image</h2>
+      <p class="image-viewer-price" id="imageViewerPrice"></p>
+    </header>
+    <figure class="image-viewer-stage">
+      <img id="imageViewerImage" src="" alt="" />
+    </figure>
+    <footer class="image-viewer-actions">
+      <a
+        id="imageViewerLink"
+        class="primary-action"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Deal
+      </a>
+    </footer>
+  </article>
+</dialog>

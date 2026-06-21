@@ -1,0 +1,353 @@
+:root {
+  color-scheme: light;
+  --page: #f2f4f7;
+  --panel: #ffffff;
+  --ink: #172033;
+  --muted: #657287;
+  --line: #d8dee8;
+  --line-soft: #edf1f5;
+  --blue: #0b67d8;
+  --blue-dark: #084b9c;
+  --green: #168a34;
+  --red: #e00019;
+  --yellow: #ffb000;
+  --font-sans: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --shadow: 0 2px 8px rgba(23, 32, 51, 0.08);
+  --shadow-hover: 0 8px 20px rgba(23, 32, 51, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.42;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+}
+body.is-modal-open {
+  overflow: hidden;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+a {
+  color: inherit;
+}
+img,
+svg {
+  max-width: 100%;
+}
+[hidden] {
+  display: none !important;
+}
+
+.app-shell {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.ui-icon {
+  width: 1.05em;
+  height: 1.05em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: 0 0 auto;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: 190px minmax(260px, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  min-width: 0;
+}
+.brand-logo {
+  display: block;
+  width: 176px;
+  height: 38px;
+  object-fit: contain;
+  object-position: left center;
+}
+.brand-line {
+  display: none;
+}
+.header-search {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+.header-search input {
+  width: 100%;
+  height: 40px;
+  padding: 0 42px 0 12px;
+  border: 2px solid var(--blue);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--ink);
+  outline: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.header-search input:focus {
+  border-color: var(--blue-dark);
+}
+.search-icon {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--blue);
+}
+.top-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.raid-status,
+.saved-top-button,
+.total-pill {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #f8fafc;
+  color: var(--ink);
+}
+.raid-status {
+  display: grid;
+  align-content: center;
+  min-width: 172px;
+  padding: 5px 9px;
+}
+.raid-status span {
+  font-size: 0.72rem;
+  font-weight: 750;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.raid-status small {
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.saved-top-button,
+.total-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 10px;
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+.total-pill span {
+  display: none;
+}
+
+.hero {
+  margin-top: 8px;
+}
+.hero-copy {
+  display: none;
+}
+.hero-banner-panel {
+  display: block;
+  height: 92px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+}
+.hero-banner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  overflow: hidden;
+}
+.stat-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  min-height: 48px;
+  padding: 8px 10px;
+  border-right: 1px solid var(--line-soft);
+}
+.stat-card:last-child {
+  border-right: 0;
+}
+.stat-card p {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+.stat-icon,
+.stat-card small {
+  display: none;
+}
+.stat-card span {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 650;
+}
+.stat-card strong {
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.retailer-strip {
+  position: relative;
+  margin-top: 8px;
+  padding: 8px 0;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  overflow: hidden;
+}
+.retailer-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  min-width: 100%;
+  margin: 0;
+  padding: 0 8px;
+  list-style: none;
+  overflow: visible;
+  scrollbar-width: none;
+  animation: retailerRail 32s linear infinite alternate;
+}
+.retailer-chips:hover {
+  animation-play-state: paused;
+}
+.retailer-chips li {
+  display: contents;
+}
+.retailer-chips::-webkit-scrollbar {
+  display: none;
+}
+@keyframes retailerRail {
+  from {
+    transform: translateX(-36%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.chip,
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 6px 11px 6px 7px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--ink);
+  white-space: nowrap;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+.logo-chip.is-active {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: #edf5ff;
+}
+.chip-logo-frame {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: 3px;
+  background: #ffffff;
+}
+.chip-logo-frame img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+.chip-fallback {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  margin-top: 10px;
+}

@@ -1,0 +1,117 @@
+<header class="review-topbar">
+  <a class="review-brand" href="index.html" aria-label="LekkerDeal home">
+    <img src="assets/logo.png" alt="LekkerDeal" />
+  </a>
+  <section class="review-topbar-copy" aria-label="Page summary">
+    <strong>Community Reviews</strong>
+    <span>Deal wins, product reviews and alert feedback from shoppers.</span>
+  </section>
+  <nav class="review-actions" aria-label="Review page actions">
+    <a class="review-page-link" href="index.html#deals">
+      <svg class="ui-icon" aria-hidden="true">
+        <use href="#icon-tag"></use>
+      </svg>
+      Deals
+    </a>
+  </nav>
+  <button
+    class="mobile-menu-button review-menu-button"
+    id="reviewMobileMenuButton"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="reviewMobileNavDrawer"
+  >
+    <span class="hamburger-lines" aria-hidden="true"></span>
+  </button>
+</header>
+
+<aside
+  class="mobile-nav-drawer review-nav-drawer"
+  id="reviewMobileNavDrawer"
+  aria-label="Review page mobile menu"
+  hidden
+>
+  <header class="mobile-nav-head">
+    <img src="assets/icon.png" alt="" aria-hidden="true" />
+    <span>
+      <strong>LekkerDeal</strong>
+      <small>Reviews, account and deal links</small>
+    </span>
+    <button
+      class="mobile-nav-close"
+      id="reviewMobileMenuClose"
+      type="button"
+      aria-label="Close menu"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </header>
+  <section class="mobile-nav-panel" aria-label="Review page note">
+    <span>Community signal board</span>
+    <small>Post product reviews, deal notes and alert feedback.</small>
+  </section>
+  <nav class="mobile-nav-actions" aria-label="Review mobile links">
+    <p class="mobile-nav-label">My LekkerDeal</p>
+    <section class="mobile-nav-auth" aria-label="Account actions">
+      <button
+        class="mobile-auth-button is-login"
+        id="reviewMobileLoginButton"
+        type="button"
+        data-auth-logged-out
+      >
+        Login
+      </button>
+      <button
+        class="mobile-auth-button is-register"
+        id="reviewMobileRegisterButton"
+        type="button"
+        data-auth-logged-out
+      >
+        <svg class="ui-icon" aria-hidden="true">
+          <use href="#icon-check"></use>
+        </svg>
+        Register
+      </button>
+      <button
+        class="mobile-auth-button is-account"
+        id="reviewMobileAccountButton"
+        type="button"
+        data-auth-logged-in
+        hidden
+      >
+        <svg class="ui-icon" aria-hidden="true">
+          <use href="#icon-user"></use>
+        </svg>
+        <span data-auth-user-label>Account</span>
+      </button>
+      <button
+        class="mobile-auth-button is-logout"
+        id="reviewMobileLogoutButton"
+        type="button"
+        data-auth-logged-in
+        hidden
+      >
+        Logout
+      </button>
+    </section>
+    <p class="mobile-nav-label">Browse</p>
+    <a href="index.html#deals">
+      <svg class="ui-icon" aria-hidden="true">
+        <use href="#icon-tag"></use>
+      </svg>
+      All Deals
+    </a>
+    <a href="reviews.html">
+      <svg class="ui-icon" aria-hidden="true">
+        <use href="#icon-star"></use>
+      </svg>
+      Community Reviews
+    </a>
+  </nav>
+  <section class="mobile-nav-install" aria-label="Install LekkerDeal">
+    <button id="reviewMobileInstallButton" type="button">
+      Install web-app
+    </button>
+  </section>
+</aside>

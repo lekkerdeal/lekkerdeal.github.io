@@ -1,0 +1,212 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Share feedback, deal wins, retailer requests and alert ideas with LekkerDeal's South African shopping community."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="LekkerDeal" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LekkerDeal" />
+    <meta property="og:title" content="LekkerDeal Community Reviews" />
+    <meta
+      property="og:description"
+      content="Tell LekkerDeal which specials, retailers and alerts South African shoppers want next."
+    />
+    <meta property="og:url" content="https://lekkerdeal.co.za/reviews.html" />
+    <meta
+      property="og:image"
+      content="https://lekkerdeal.co.za/assets/banner.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>LekkerDeal Community Reviews</title>
+    <link rel="canonical" href="https://lekkerdeal.co.za/reviews.html" />
+    <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="src/css/styles.css" />
+  </head>
+  <body class="reviews-page">
+    <div class="review-app">
+      <template data-html-partial="src/html/reviews-header.html"></template>
+
+      <main class="review-shell">
+        <section class="review-hero" aria-labelledby="reviewTitle">
+          <div class="review-hero-copy">
+            <p class="review-kicker">Shopper signal board</p>
+            <h1 id="reviewTitle">
+              Tell us what deals are actually worth chasing.
+            </h1>
+            <div class="review-hero-signals" aria-label="Review themes">
+              <span>Deal wins</span>
+              <span>Retailer requests</span>
+              <span>Price issues</span>
+              <span>Alert feedback</span>
+            </div>
+          </div>
+          <div class="review-hero-art">
+            <img src="assets/banner.png" alt="LekkerDeal shopping banner" />
+          </div>
+        </section>
+
+        <section class="review-stats" aria-label="Community review stats">
+          <article class="review-stat">
+            <span>Total notes</span>
+            <strong id="reviewTotal">0</strong>
+          </article>
+          <article class="review-stat">
+            <span>Average rating</span>
+            <strong id="reviewAverage">0/5</strong>
+          </article>
+          <article class="review-stat">
+            <span>Top province</span>
+            <strong id="reviewProvinceStat">South Africa</strong>
+          </article>
+          <article class="review-stat">
+            <span>Saved here</span>
+            <strong id="reviewSaved">0</strong>
+          </article>
+        </section>
+
+        <section class="review-grid" aria-label="Community reviews">
+          <aside class="review-panel" aria-labelledby="reviewFormTitle">
+            <h2 id="reviewFormTitle">Write a deal note</h2>
+            <p class="review-panel-copy">
+              Keep it practical. What helped, what was missing, which retailer
+              should be tracked, or which alert would make the app sharper?
+            </p>
+            <div class="review-context" id="reviewContext" hidden></div>
+
+            <form class="review-form" id="reviewForm" novalidate>
+              <input id="reviewDealId" name="dealId" type="hidden" />
+              <input id="reviewProductKey" name="productKey" type="hidden" />
+              <input id="reviewDealTitle" name="dealTitle" type="hidden" />
+<div class="review-two-col">
+                <label class="review-field">
+                  <span>Province</span>
+                  <select name="province" required>
+                    <option value="">Select</option>
+                    <option value="Eastern Cape">Eastern Cape</option>
+                    <option value="Free State">Free State</option>
+                    <option value="Gauteng">Gauteng</option>
+                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                    <option value="Limpopo">Limpopo</option>
+                    <option value="Mpumalanga">Mpumalanga</option>
+                    <option value="Northern Cape">Northern Cape</option>
+                    <option value="North West">North West</option>
+                    <option value="Western Cape">Western Cape</option>
+                  </select>
+                </label>
+
+                <label class="review-field">
+                  <span>Review type</span>
+                  <select id="reviewType" name="type" required></select>
+                </label>
+              </div>
+
+              <label class="review-field">
+                <span>Retailer or category</span>
+                <input
+                  name="retailer"
+                  type="text"
+                  maxlength="42"
+                  placeholder="Makro, Builders, baby, tech..."
+                />
+              </label>
+
+              <div class="review-field">
+                <span>Rating</span>
+                <div
+                  class="rating-row"
+                  role="radiogroup"
+                  aria-label="Rating out of 5"
+                >
+                  <label
+                    ><input
+                      type="radio"
+                      name="rating"
+                      value="1"
+                      required
+                    /><span>1</span></label
+                  >
+                  <label
+                    ><input type="radio" name="rating" value="2" /><span
+                      >2</span
+                    ></label
+                  >
+                  <label
+                    ><input type="radio" name="rating" value="3" /><span
+                      >3</span
+                    ></label
+                  >
+                  <label
+                    ><input type="radio" name="rating" value="4" /><span
+                      >4</span
+                    ></label
+                  >
+                  <label
+                    ><input type="radio" name="rating" value="5" /><span
+                      >5</span
+                    ></label
+                  >
+                </div>
+              </div>
+
+              <label class="review-field">
+                <span>Comment</span>
+                <textarea
+                  name="comment"
+                  maxlength="280"
+                  placeholder="Example: Found this deal useful, but I want alerts for appliance price drops in Gauteng."
+                  required
+                ></textarea>
+              </label>
+
+              <label class="review-consent">
+                <input name="consent" type="checkbox" required />
+                <span
+                  >I agree that LekkerDeal may store and use this feedback to
+                  improve deal alerts, product recommendations and the shopping
+                  experience.</span
+                >
+              </label>
+
+              <button class="review-submit-button" type="submit">
+                <svg class="ui-icon" aria-hidden="true">
+                  <use href="#icon-check"></use>
+                </svg>
+                Post review
+              </button>
+              <p class="review-status" id="reviewStatus" aria-live="polite"></p>
+            </form>
+          </aside>
+
+          <section class="review-feed" aria-labelledby="reviewFeedTitle">
+            <div class="review-feed-header">
+              <div>
+                <h2 id="reviewFeedTitle">Community feed</h2>
+                <p class="review-meta">
+                  Top signal: <span id="reviewTopType">Deal wins</span>
+                </p>
+              </div>
+              <div
+                class="review-tabs"
+                id="reviewTabs"
+                aria-label="Review filters"
+              ></div>
+            </div>
+            <div class="review-list" id="reviewList"></div>
+          </section>
+        </section>
+      </main>
+
+      <template data-html-partial="src/html/site-footer.html"></template>
+    </div>
+
+    <script src="runtime-config.js"></script>
+    <script type="module" src="src/js/reviewsPageApplication.js"></script>
+  </body>
+</html>

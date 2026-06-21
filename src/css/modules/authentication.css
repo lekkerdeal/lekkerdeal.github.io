@@ -1,0 +1,589 @@
+.account-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+body.auth-modal-open {
+  overflow: hidden;
+}
+
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: none;
+  place-items: center;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 14px;
+  border: 0;
+  background: rgba(15, 23, 42, 0.58);
+}
+
+.desktop-auth-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.desktop-auth-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 72px;
+  min-height: 38px;
+  padding: 0 11px;
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  background: #ffffff;
+  color: var(--blue);
+  font-size: 0.76rem;
+  font-weight: 850;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.desktop-auth-button.is-login,
+.desktop-auth-button.is-account {
+  background: var(--blue);
+  color: #ffffff;
+}
+
+.desktop-auth-button.is-register {
+  min-width: 82px;
+}
+
+.desktop-auth-button.is-account,
+.account-button:has(.profile-icon) {
+  width: 38px;
+  min-width: 38px;
+  padding: 0;
+  border-color: var(--line);
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.mobile-nav-auth .is-account,
+.mobile-nav-auth .is-account span,
+.mobile-nav-auth .is-account .profile-icon {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
+.profile-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.desktop-auth-button.is-logout {
+  min-width: 70px;
+  border-color: #f1a6ae;
+  background: #fff1f2;
+  color: var(--red);
+}
+
+.auth-modal[open] {
+  display: grid !important;
+}
+
+.auth-modal.is-open {
+  display: grid !important;
+}
+
+.auth-modal[hidden],
+.auth-form[hidden],
+[data-auth-panel][hidden] {
+  display: none !important;
+}
+
+.auth-modal::backdrop {
+  background: rgba(15, 23, 42, 0.58);
+}
+
+.auth-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  width: min(420px, 100%);
+  max-height: calc(100vh - 28px);
+  overflow: auto;
+  padding: 20px 16px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.32);
+}
+
+.auth-logo {
+  display: block;
+  width: min(172px, 62%);
+  height: 42px;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto 2px;
+}
+
+.auth-card h2 {
+  margin: 0;
+  padding: 0 38px;
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.auth-copy,
+.auth-status,
+.auth-step-copy {
+  width: min(340px, 100%);
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.auth-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  width: min(320px, 100%);
+}
+
+.auth-tabs button {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.auth-tabs button.is-active,
+.auth-form button {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+}
+
+.auth-form {
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  width: 100%;
+}
+
+.auth-floating-field {
+  position: relative;
+  display: block;
+  width: min(300px, 100%);
+}
+
+.auth-floating-field input,
+.auth-floating-field select {
+  width: 100%;
+  height: 44px;
+  min-height: 44px;
+  padding: 14px 0 4px;
+  border: 0;
+  border-bottom: 1px solid #aeb9c8;
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 750;
+  outline: 0;
+}
+
+.auth-floating-field select {
+  appearance: none;
+  padding-right: 26px;
+  cursor: pointer;
+}
+
+.auth-floating-field:has(select)::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  top: 21px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #657287;
+  border-bottom: 2px solid #657287;
+  pointer-events: none;
+  transform: rotate(45deg);
+}
+
+.auth-floating-field select option {
+  color: var(--ink);
+  background: #ffffff;
+  font-size: 0.9rem;
+}
+
+.auth-floating-field input:focus,
+.auth-floating-field select:focus {
+  border-bottom-color: var(--blue);
+  box-shadow: none;
+}
+
+.auth-floating-field span {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  color: #657287;
+  font-size: 0.82rem;
+  font-weight: 750;
+  line-height: 1;
+  pointer-events: none;
+  transition: top 0.14s ease, font-size 0.14s ease, color 0.14s ease;
+}
+
+.auth-floating-field input:focus + span,
+.auth-floating-field input:not(:placeholder-shown) + span,
+.auth-floating-field input:valid + span,
+.auth-floating-field select:focus + span,
+.auth-floating-field select:valid + span {
+  top: 0;
+  color: var(--blue);
+  font-size: 0.68rem;
+}
+
+.auth-form button {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: min(220px, 78%);
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.auth-form .auth-secondary-button {
+  width: min(160px, 68%);
+  border-color: var(--line);
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.auth-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 18px;
+}
+
+.auth-status-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(37, 99, 235, 0.28);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: auth-spin 0.8s linear infinite;
+}
+
+.auth-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.auth-form button.is-loading::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: auth-spin 0.8s linear infinite;
+}
+
+@keyframes auth-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.auth-check {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 8px;
+  align-items: center;
+  width: min(300px, 100%);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.auth-check input {
+  min-height: auto;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--blue);
+}
+
+#authLogout {
+  width: min(187px, 68%);
+  border-color: #cbd5e1;
+  background: #f1f5f9;
+  color: var(--ink);
+}
+
+.account-profile-head {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  width: min(320px, 100%);
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #f8fafc;
+}
+
+.account-avatar {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--blue);
+}
+
+.account-profile-head strong,
+.account-profile-head small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-profile-head strong {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.account-profile-head small {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.profile-action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: min(320px, 100%);
+}
+
+.profile-action-grid button {
+  width: 100%;
+  min-height: 38px;
+  border-color: var(--line);
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.account-details-form,
+.account-danger-zone {
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  width: 100%;
+}
+
+.account-inline-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: min(300px, 100%);
+}
+
+.account-inline-actions button {
+  width: 100%;
+}
+
+.danger-link-button {
+  border-color: #fecdd3 !important;
+  background: #fff1f2 !important;
+  color: var(--red) !important;
+}
+
+.delete-confirm-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  width: min(300px, 100%);
+}
+
+.delete-confirm-row p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.danger-confirm-button {
+  border-color: var(--red) !important;
+  background: var(--red) !important;
+  color: #ffffff !important;
+}
+
+.delete-password-form {
+  width: 100%;
+}
+
+@media (max-width: 820px) {
+  .top-actions .account-button {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-auth-actions {
+    display: none !important;
+  }
+}
+
+/* Header stability: this file loads last, so keep the app bar visible. */
+html body .app-shell > .topbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+@media (min-width: 769px) {
+  html body .app-shell > .topbar {
+    grid-template-columns: 210px minmax(260px, 520px) minmax(max-content, 1fr) !important;
+    min-height: 64px !important;
+  }
+
+  html body .app-shell > .topbar .top-actions {
+    display: flex !important;
+    justify-content: flex-end !important;
+    min-width: max-content !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html body .app-shell > .topbar {
+    grid-template-columns: clamp(74px, 20vw, 132px) minmax(0, 1fr) 40px !important;
+    min-height: 58px !important;
+  }
+
+  html body .app-shell > .topbar .top-actions {
+    display: none !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .auth-card {
+    padding: 18px 14px;
+  }
+
+  .auth-logo {
+    width: min(148px, 58%);
+  }
+
+  .auth-form button {
+    width: min(190px, 74%);
+  }
+}
+
+@media (max-width: 380px) {
+  .profile-action-grid {
+    gap: 3px !important;
+    column-gap: 3px !important;
+    row-gap: 5px !important;
+    width: 100% !important;
+  }
+
+  .profile-action-grid button {
+    width: 100% !important;
+    min-height: 33px;
+    padding-inline: 5px;
+    font-size: 0.72rem;
+  }
+
+  .account-inline-actions {
+    gap: 3px !important;
+    column-gap: 3px !important;
+    width: 100% !important;
+  }
+
+  .account-inline-actions button {
+    width: 100% !important;
+    min-height: 33px;
+    padding-inline: 5px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 260px) {
+  .profile-action-grid,
+  .account-inline-actions {
+    gap: 4px;
+  }
+
+  .profile-action-grid button,
+  .account-inline-actions button {
+    width: 100% !important;
+    padding-inline: 5px;
+    font-size: 0.68rem;
+  }
+}

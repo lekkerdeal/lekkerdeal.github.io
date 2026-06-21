@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="LekkerDeal helps South African shoppers find weekly online specials, best discounts, tech deals, appliance deals, DIY deals, fashion specials, baby deals, grocery essentials, and retailer price drops."
+    />
+    <meta
+      name="keywords"
+      content="South African deals, online specials South Africa, weekly deals, best discounts South Africa, tech deals South Africa, appliance specials, DIY deals, fashion deals, baby deals, grocery specials, Makro deals, HiFi Corp specials, Builders deals, GeeWiz deals, Incredible Connection deals, Wootware specials, price comparison South Africa, WhatsApp deal alerts, LekkerDeal"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="author" content="LekkerDeal" />
+    <meta name="application-name" content="LekkerDeal" />
+    <meta name="apple-mobile-web-app-title" content="LekkerDeal" />
+    <meta name="theme-color" content="#39a935" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LekkerDeal" />
+    <meta
+      property="og:title"
+      content="LekkerDeal - South African Weekly Deals, Specials and Price Drops"
+    />
+    <meta
+      property="og:description"
+      content="Find South Africa's lekker weekly deals across tech, appliances, DIY, fashion, baby, and everyday essentials with LekkerDeal."
+    />
+    <meta property="og:url" content="https://lekkerdeal.co.za/" />
+    <meta property="og:image" content="https://lekkerdeal.co.za/assets/banner.png" />
+    <meta property="og:image:alt" content="LekkerDeal - find specials, save lekker" />
+    <meta property="og:locale" content="en_ZA" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LekkerDeal - South African Weekly Deals" />
+    <meta
+      name="twitter:description"
+      content="Find lekker South African specials, discounts, and retailer price drops every week."
+    />
+    <meta name="twitter:image" content="https://lekkerdeal.co.za/assets/banner.png" />
+    <title>LekkerDeal - South African Weekly Deals, Specials and Price Drops</title>
+    <link rel="canonical" href="https://lekkerdeal.co.za/" />
+    <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="sitemap.xml" />
+    <link rel="preconnect" href="https://www.hificorp.co.za" />
+    <link rel="preconnect" href="https://www.builders.co.za" />
+    <link rel="preconnect" href="https://www.makro.co.za" />
+    <link rel="preconnect" href="https://www.geewiz.co.za" />
+    <link rel="preconnect" href="https://www.incredible.co.za" />
+    <link rel="preconnect" href="https://www.wootware.co.za" />
+    <link rel="stylesheet" href="src/css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "LekkerDeal",
+        "alternateName": ["Lekker Deal", "Lekker Deals"],
+        "url": "https://lekkerdeal.co.za/",
+        "description": "South African weekly deal discovery platform for online specials, retailer discounts, price drops, and WhatsApp deal alerts.",
+        "inLanguage": "en-ZA",
+        "areaServed": { "@type": "Country", "name": "South Africa" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "LekkerDeal",
+          "url": "https://lekkerdeal.co.za/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://lekkerdeal.co.za/assets/logo.png"
+          }
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://lekkerdeal.co.za/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "LekkerDeal",
+        "url": "https://lekkerdeal.co.za/",
+        "logo": "https://lekkerdeal.co.za/assets/logo.png",
+        "image": "https://lekkerdeal.co.za/assets/banner.png",
+        "description": "LekkerDeal tracks South African online deals, specials, discounts, and price drops across popular retailers.",
+        "areaServed": "ZA"
+      }
+    </script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <template data-html-partial="src/html/site-header.html"></template>
+      <main>
+        <template data-html-partial="src/html/home-hero-and-stats.html"></template>
+        <template data-html-partial="src/html/deal-catalog.html"></template>
+      </main>
+      <template data-html-partial="src/html/site-footer.html"></template>
+    </div>
+
+    <template data-html-partial="src/html/deal-modals.html"></template>
+
+    <script src="runtime-config.js"></script>
+    <script type="module" src="src/js/dealCatalogApplication.js"></script>
+  </body>
+</html>

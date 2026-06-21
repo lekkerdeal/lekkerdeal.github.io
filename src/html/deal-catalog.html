@@ -1,0 +1,148 @@
+<section class="catalog-layout" id="deals">
+  <button
+    class="mobile-filter-toggle"
+    id="mobileFiltersToggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="dealFilters"
+  >
+    <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <use href="#icon-sliders"></use>
+    </svg>
+    Filters
+  </button>
+
+  <aside class="filters-panel" id="dealFilters" aria-label="Deal filters">
+    <header class="panel-title-row">
+      <button id="resetFiltersButton" class="link-button" type="button">
+        Reset Filters
+      </button>
+      <button
+        id="closeFiltersButton"
+        class="filter-close-button"
+        type="button"
+        aria-label="Close filters"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </header>
+
+    <label class="field">
+      <span>Retailer</span>
+      <select id="retailerFilter"></select>
+    </label>
+
+    <label class="field">
+      <span>Category</span>
+      <select id="categoryFilter"></select>
+    </label>
+
+    <label class="field">
+      <span>Minimum Discount</span>
+      <output id="discountOutput" for="discountFilter">0%</output>
+      <input id="discountFilter" type="range" min="0" max="90" step="5" value="0" />
+    </label>
+
+    <fieldset class="price-fields">
+      <legend>Price Range (R)</legend>
+      <label>
+        <span class="sr-only">Minimum price</span>
+        <input id="minPriceFilter" type="number" min="0" placeholder="Min" />
+      </label>
+      <label>
+        <span class="sr-only">Maximum price</span>
+        <input id="maxPriceFilter" type="number" min="0" placeholder="Max" />
+      </label>
+    </fieldset>
+
+    <label class="field">
+      <span>Stock Status</span>
+      <select id="stockFilter">
+        <option value="">All stock</option>
+        <option value="in_stock">In stock</option>
+        <option value="out_of_stock">Out of stock</option>
+        <option value="unknown">Unknown</option>
+      </select>
+    </label>
+
+    <label class="toggle-row">
+      <span>
+        <strong>Saved deals only</strong>
+        <small>Show only saved deals</small>
+      </span>
+      <input id="savedOnlyFilter" type="checkbox" />
+    </label>
+  </aside>
+
+  <section class="catalog-main" aria-label="Deal results">
+    <header class="catalog-toolbar">
+      <label class="sort-field">
+        <span>Sort by</span>
+        <select id="sortSelect">
+          <option value="discount-desc">Best discount</option>
+          <option value="price-asc">Lowest price</option>
+          <option value="price-desc">Highest price</option>
+          <option value="newest">Fresh finds</option>
+          <option value="retailer-asc">Retailer A-Z</option>
+          <option value="title-asc">Title A-Z</option>
+        </select>
+      </label>
+      <p id="resultSummary" aria-live="polite"></p>
+    </header>
+
+    <section class="price-checks" aria-labelledby="priceChecksTitle">
+      <header class="section-heading">
+        <h2 id="priceChecksTitle">
+          <svg class="ui-icon" aria-hidden="true">
+            <use href="#icon-chart"></use>
+          </svg>
+          Best Price Checks
+        </h2>
+        <button id="viewPriceChecksButton" class="link-button" type="button">
+          <svg class="ui-icon" aria-hidden="true">
+            <use href="#icon-flame"></use>
+          </svg>
+          Best discounts
+        </button>
+      </header>
+      <ol id="priceCheckList" class="price-check-list"></ol>
+    </section>
+
+    <section class="deals-section" aria-labelledby="allDealsTitle">
+      <header class="section-heading">
+        <h2 id="allDealsTitle">
+          <svg class="ui-icon" aria-hidden="true">
+            <use href="#icon-tag"></use>
+          </svg>
+          All Deals
+        </h2>
+        <p id="renderCount"></p>
+      </header>
+      <p id="searchScopeNotice" class="search-scope-notice" aria-live="polite" hidden></p>
+      <section id="loadingState" class="loading-state" hidden></section>
+      <section id="emptyState" class="empty-state" hidden></section>
+      <section id="dealsGrid" class="deals-grid" aria-live="polite"></section>
+      <span id="infiniteSentinel" class="infinite-sentinel" aria-hidden="true"></span>
+      <button id="loadMoreButton" class="show-more-button" type="button" hidden>
+        Load more deals
+      </button>
+    </section>
+  </section>
+
+  <aside class="side-panel" aria-label="Deal insights">
+    <section class="side-card">
+      <header class="section-heading">
+        <h2>
+          <svg class="ui-icon" aria-hidden="true">
+            <use href="#icon-tag"></use>
+          </svg>
+          Categories
+        </h2>
+        <button id="sideAllCategoriesButton" class="link-button" type="button">
+          All
+        </button>
+      </header>
+      <nav id="categoryBreakdown" class="breakdown-list" aria-label="Deal categories"></nav>
+    </section>
+  </aside>
+</section>

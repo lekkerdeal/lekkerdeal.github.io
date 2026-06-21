@@ -1,0 +1,97 @@
+<section class="hero" aria-labelledby="heroTitle">
+  <div class="hero-top">
+    <div class="hero-inner">
+      <header class="hero-copy">
+        <h1 id="heroTitle">South African deals, made lekker.</h1>
+        <p>
+          Price drops and retailer finds across tech, appliances, DIY, fashion,
+          baby and essentials.
+        </p>
+        <p class="hero-values">
+          Deals | Price Drops | Retailer Specials | Alerts
+        </p>
+        <ul class="hero-signal-row" aria-label="LekkerDeal shopping signals">
+          <li>Rand price drops</li>
+          <li>SA retailers</li>
+          <li>WhatsApp alerts</li>
+        </ul>
+        <nav class="hero-actions" aria-label="Hero actions">
+          <a class="primary-action" href="#deals">
+            <svg class="ui-icon" aria-hidden="true">
+              <use href="#icon-tag"></use>
+            </svg>
+            Start Shopping
+          </a>
+          <button class="secondary-action" id="bestDiscountsButton" type="button">
+            <svg class="ui-icon" aria-hidden="true">
+              <use href="#icon-flame"></use>
+            </svg>
+            Best Discounts
+          </button>
+        </nav>
+      </header>
+      <figure class="hero-art" aria-label="LekkerDeal campaign banner">
+        <img
+          class="hero-banner"
+          src="assets/banner.png"
+          alt="LekkerDeal - find specials, save lekker"
+        />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="stats-row compact-stats" aria-label="Deal statistics">
+  <article class="stat-card">
+    <span class="stat-icon tag-icon" aria-hidden="true">
+      <svg class="ui-icon" viewBox="0 0 24 24">
+        <use href="#icon-tag"></use>
+      </svg>
+    </span>
+    <p>
+      <span>Total Deals</span>
+      <strong id="statTotalDeals">0</strong>
+      <small id="visibleDealCount">Loading</small>
+    </p>
+  </article>
+  <article class="stat-card">
+    <span class="stat-icon store-icon" aria-hidden="true">
+      <svg class="ui-icon" viewBox="0 0 24 24">
+        <use href="#icon-store"></use>
+      </svg>
+    </span>
+    <p>
+      <span>Retailers Tracked</span>
+      <strong id="statRetailers">0</strong>
+      <small>Across South Africa</small>
+    </p>
+  </article>
+  <article class="stat-card">
+    <span class="stat-icon percent-icon" aria-hidden="true">
+      <svg class="ui-icon" viewBox="0 0 24 24">
+        <use href="#icon-percent"></use>
+      </svg>
+    </span>
+    <p>
+      <span>Average Discount</span>
+      <strong id="statAverageDiscount">0%</strong>
+      <small>Across all deals</small>
+    </p>
+  </article>
+  <article class="stat-card">
+    <span class="stat-icon star-icon" aria-hidden="true">
+      <svg class="ui-icon" viewBox="0 0 24 24">
+        <use href="#icon-star"></use>
+      </svg>
+    </span>
+    <p>
+      <span>Best Discount Found</span>
+      <strong id="statBestDiscount">0%</strong>
+      <small id="statBestDiscountRetailer">Waiting for data</small>
+    </p>
+  </article>
+</section>
+
+<nav class="retailer-strip" aria-label="Retailer filters">
+  <ul id="retailerChips" class="retailer-chips"></ul>
+</nav>
