@@ -1,8 +1,9 @@
-const CACHE_VERSION = "lekkedeal-v206";
+const CACHE_VERSION = "lekkedeal-v210";
 const APP_SHELL = [
     "./",
     "index.html",
     "reviews.html",
+    "data/all_deals.json",
     "runtime-config.js",
     "src/css/styles.css",
     "src/css/modules/foundation.css",
@@ -64,22 +65,6 @@ const APP_SHELL = [
     "assets/logo.png",
     "assets/banner.png",
     "assets/no-image-lekkie.png",
-    "assets/retailers/builders.svg",
-    "assets/retailers/computer-mania.svg",
-    "assets/retailers/directdeals.svg",
-    "assets/retailers/everymonday.svg",
-    "assets/retailers/expertstores.svg",
-    "assets/retailers/firstshop.svg",
-    "assets/retailers/geewiz.svg",
-    "assets/retailers/hifi-corp.svg",
-    "assets/retailers/incredible.svg",
-    "assets/retailers/leroy-merlin.svg",
-    "assets/retailers/loot.svg",
-    "assets/retailers/makro.svg",
-    "assets/retailers/onedayonly.svg",
-    "assets/retailers/tafelberg.svg",
-    "assets/retailers/woolworths.svg",
-    "assets/retailers/wootware.svg",
     "assets/retailers/icons/builders.ico",
     "assets/retailers/icons/computer-mania.svg",
     "assets/retailers/icons/everymonday.jpg",
@@ -97,6 +82,7 @@ const APP_SHELL = [
     "assets/retailers/icons/wootware.ico"
 ];
 const DATA_URL = "data/all_deals.json";
+const DEALS_CACHE_KEY = new Request(new URL(DATA_URL, self.location.origin));
 
 self.addEventListener("install", (event) => {
     event.waitUntil(
@@ -120,7 +106,7 @@ self.addEventListener("fetch", (event) => {
 
     const url = new URL(request.url);
     if (url.pathname.endsWith(DATA_URL)) {
-        event.respondWith(fetch(request));
+        event.respondWith(networkFirstDeals(request));
         return;
     }
 
@@ -140,7 +126,7 @@ self.addEventListener("fetch", (event) => {
 
 async function staleWhileRevalidate(request) {
     const cache = await caches.open(CACHE_VERSION);
-    const cached = await cache.match(request);
+    const cached = await cache.match(request, { ignoreSearch: true });
     const network = fetch(request)
         .then((response) => {
             if (response && response.ok) cache.put(request, response.clone());
@@ -157,10 +143,37 @@ async function networkFirst(request) {
         if (response && response.ok) cache.put(request, response.clone());
         return response;
     } catch (error) {
-        const cached = await cache.match(request);
+        const cached = await cache.match(request, { ignoreSearch: true });
         if (cached) return cached;
         throw error;
     }
+}
+
+async function networkFirstDeals(request) {
+    const cache = await caches.open(CACHE_VERSION);
+    try {
+        const response = await fetch(request);
+        if (response && response.ok) {
+            await cache.put(DEALS_CACHE_KEY, response.clone());
+            return response;
+        }
+        const cached = await cache.match(DEALS_CACHE_KEY);
+        return cached ? markOfflineResponse(cached) : response;
+    } catch (error) {
+        const cached = await cache.match(DEALS_CACHE_KEY);
+        if (cached) return markOfflineResponse(cached);
+        throw error;
+    }
+}
+
+async function markOfflineResponse(response) {
+    const headers = new Headers(response.headers);
+    headers.set("X-LekkeDeal-Offline", "true");
+    return new Response(await response.clone().blob(), {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+    });
 }
 
 async function cacheFirst(request) {

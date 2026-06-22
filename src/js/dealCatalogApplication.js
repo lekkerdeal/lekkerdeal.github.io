@@ -13,6 +13,8 @@ import {
 } from "./modules/application-config.js";
 import {
   closeMobileFilters as closeFiltersPanel,
+  initializeNetworkStatus,
+  initializePwaInstallation,
   registerServiceWorker,
   setupScrollHeader,
   toggleMobileFilters as toggleFiltersPanel,
@@ -104,6 +106,7 @@ const state = {
   searchFallbackNotice: "",
   searchFallbackActive: false,
   dataUpdatedAt: "",
+  offlineData: false,
   filters: {
     search: "",
     retailer: "",
@@ -131,12 +134,15 @@ function initializeApplication() {
   initPrivateSubmissionModals({
     resolveDealById: (dealId) => state.dealById.get(dealId),
   });
+  initializePwaInstallation();
+  initializeNetworkStatus();
   initializeCaptureState(state, els);
   registerServiceWorker();
   setupDealWorker();
   startRaidCountdown(els);
   setupInfiniteScroll();
   setupScrollHeader();
+  window.addEventListener("lekkedeal:network-restored", loadDeals);
   loadDeals();
 }
 
@@ -473,6 +479,12 @@ async function loadDeals() {
     state.dataUpdatedAt = normalizeResponseDate(
       response.headers.get("last-modified"),
     );
+    state.offlineData = response.headers.get("X-LekkeDeal-Offline") === "true";
+    window.dispatchEvent(
+      new CustomEvent(
+        state.offlineData ? "lekkedeal:offline-data" : "lekkedeal:fresh-data",
+      ),
+    );
     const rawDeals = await response.json();
     if (!Array.isArray(rawDeals)) {
       throw new Error("all_deals.json must contain an array");
@@ -497,6 +509,7 @@ async function loadDeals() {
     state.allDeals = [];
     state.filteredDeals = [];
     state.dataUpdatedAt = "";
+    state.offlineData = false;
     showLoading(false);
     renderEmptyState(
       "Could not load deals.",
@@ -795,7 +808,7 @@ function updateStaticStats() {
       : "Waiting for data";
   const lastUpdatedAt = state.dataUpdatedAt || latest?.scraped_at;
   const lastUpdatedText = lastUpdatedAt
-    ? `Updated ${formatDateTime(lastUpdatedAt)}`
+    ? `${state.offlineData ? "Stored deals · updated" : "Updated"} ${formatDateTime(lastUpdatedAt)}`
     : "Updated time unavailable";
   if (els.lastUpdated) els.lastUpdated.textContent = lastUpdatedText;
   if (els.headerLastUpdated) {

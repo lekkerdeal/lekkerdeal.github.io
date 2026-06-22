@@ -58,6 +58,32 @@ svg {
   display: none !important;
 }
 
+.network-status {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 68px);
+  left: 50%;
+  z-index: 2100;
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  margin: 0;
+  padding: 7px 10px;
+  border: 1px solid #334155;
+  border-left: 4px solid var(--yellow);
+  border-radius: 3px;
+  background: #172033;
+  color: #fff;
+  box-shadow: var(--shadow-hover);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.network-status[data-state="online"] {
+  border-left-color: var(--green);
+}
+
 .app-shell {
   width: min(1440px, 100%);
   margin: 0 auto;

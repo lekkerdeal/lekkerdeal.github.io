@@ -26,6 +26,11 @@ import * as authenticationInterface from "./modules/authentication-interface.js"
 import { logoutAccount } from "./api/authentication-api.js";
 import { loadHtmlPartials } from "./modules/html-partials.js";
 import { initPrivateSubmissionModals } from "./modules/private-submissions-interface.js";
+import {
+  initializeNetworkStatus,
+  initializePwaInstallation,
+  registerServiceWorker,
+} from "./modules/application-shell.js";
 
 const state = {
   reviews: [],
@@ -46,6 +51,9 @@ async function initReviewsPage() {
   await loadHtmlPartials();
   injectReviewEditDialog();
   bindElements();
+  initializePwaInstallation();
+  initializeNetworkStatus();
+  registerServiceWorker();
   initPrivateSubmissionModals();
   const user = await initAuthUi({
     mountButton: document.querySelector(".review-actions"),
@@ -138,6 +146,10 @@ function bindEvents() {
   window.visualViewport?.addEventListener("resize", positionReviewDrawer);
   window.visualViewport?.addEventListener("scroll", positionReviewDrawer);
   document.addEventListener("click", handleMobileMenuOutsideClick);
+  window.addEventListener("lekkedeal:network-restored", async () => {
+    await loadReviewFeed();
+    render();
+  });
   elements.tabs?.addEventListener("click", (event) => {
     const button = event.target.closest("[data-filter]");
     if (!button) return;
