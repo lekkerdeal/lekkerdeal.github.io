@@ -70,7 +70,10 @@ import {
 } from "./modules/interface-formatting.js";
 import { loadHtmlPartials } from "./modules/html-partials.js";
 import { cacheDomElementReferences } from "./modules/dom-element-references.js";
-import { startRaidCountdown } from "./modules/countdown.js";
+import {
+  setLatestDropPublishedAt,
+  startRaidCountdown,
+} from "./modules/countdown.js";
 import {
   closeImageViewer,
   fitDealImage,
@@ -810,6 +813,7 @@ function updateStaticStats() {
   const lastUpdatedText = lastUpdatedAt
     ? `${state.offlineData ? "Stored deals · updated" : "Updated"} ${formatDateTime(lastUpdatedAt)}`
     : "Updated time unavailable";
+  setLatestDropPublishedAt(els, lastUpdatedAt);
   if (els.lastUpdated) els.lastUpdated.textContent = lastUpdatedText;
   if (els.headerLastUpdated) {
     els.headerLastUpdated.textContent = lastUpdatedText;
