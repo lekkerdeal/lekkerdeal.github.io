@@ -7,6 +7,7 @@ import {
 import {
   AUTO_LOAD_BATCH_LIMIT,
   DATA_URL,
+  DEALS_REFRESH_INTERVAL_MS,
   PAGE_SIZE,
   SEARCH_DEBOUNCE_MS,
   WORKER_URL,
@@ -109,6 +110,7 @@ const state = {
   searchFallbackNotice: "",
   searchFallbackActive: false,
   dataUpdatedAt: "",
+  dataSnapshot: "",
   offlineData: false,
   filters: {
     search: "",
@@ -145,8 +147,12 @@ function initializeApplication() {
   startRaidCountdown(els);
   setupInfiniteScroll();
   setupScrollHeader();
-  window.addEventListener("lekkedeal:network-restored", loadDeals);
+  window.addEventListener("lekkedeal:network-restored", () => loadDeals());
   loadDeals();
+  window.setInterval(
+    () => loadDeals({ onlyIfChanged: true, showLoadingIndicator: false }),
+    DEALS_REFRESH_INTERVAL_MS,
+  );
 }
 
 if (document.readyState === "loading") {
@@ -472,14 +478,20 @@ function handleWorkerMessage(event) {
   applyFilterResult(filteredDeals);
 }
 
-async function loadDeals() {
-  showLoading(true);
+async function loadDeals({
+  onlyIfChanged = false,
+  showLoadingIndicator = true,
+} = {}) {
+  if (showLoadingIndicator) showLoading(true);
   try {
     const response = await fetch(DATA_URL, { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
-    state.dataUpdatedAt = normalizeResponseDate(
+    const responseText = await response.text();
+    if (onlyIfChanged && responseText === state.dataSnapshot) return;
+
+    const responseUpdatedAt = normalizeResponseDate(
       response.headers.get("last-modified"),
     );
     state.offlineData = response.headers.get("X-LekkeDeal-Offline") === "true";
@@ -488,11 +500,13 @@ async function loadDeals() {
         state.offlineData ? "lekkedeal:offline-data" : "lekkedeal:fresh-data",
       ),
     );
-    const rawDeals = await response.json();
+    const rawDeals = JSON.parse(responseText);
     if (!Array.isArray(rawDeals)) {
       throw new Error("all_deals.json must contain an array");
     }
 
+    state.dataSnapshot = responseText;
+    state.dataUpdatedAt = responseUpdatedAt;
     state.allDeals = rawDeals.map(normalizeDeal).filter(isValidDeal);
     state.dealById = new Map(
       state.allDeals.map((deal) => [deal._dealId, deal]),
@@ -509,8 +523,10 @@ async function loadDeals() {
     refreshReviewCountsFromApi();
   } catch (error) {
     console.error("Could not load LekkeDeal data", error);
+    if (!showLoadingIndicator && state.allDeals.length) return;
     state.allDeals = [];
     state.filteredDeals = [];
+    state.dataSnapshot = "";
     state.dataUpdatedAt = "";
     state.offlineData = false;
     showLoading(false);

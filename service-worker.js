@@ -1,9 +1,8 @@
-const CACHE_VERSION = "lekkedeal-v211";
+const CACHE_VERSION = "lekkedeal-v212";
 const APP_SHELL = [
     "./",
     "index.html",
     "reviews.html",
-    "data/all_deals.json",
     "runtime-config.js",
     "src/css/styles.css",
     "src/css/modules/foundation.css",

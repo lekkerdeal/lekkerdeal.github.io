@@ -1,4 +1,5 @@
 export const DATA_URL = `data/all_deals.json?v=${Date.now()}`;
+export const DEALS_REFRESH_INTERVAL_MS = 60 * 1000;
 export const SAVED_KEY = "lekkedeal_saved_deals";
 export const SAVED_PRODUCT_KEYS_KEY = "lekkedeal_saved_product_keys";
 export const LEGACY_SAVED_KEY = `deal${"raiders"}_saved_deals`;
