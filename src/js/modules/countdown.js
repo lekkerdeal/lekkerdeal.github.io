@@ -1,4 +1,5 @@
 let latestDropPublishedAt = null;
+const DROP_INTERVAL_MS = 72 * 60 * 60 * 1000;
 
 export function startRaidCountdown(elements) {
   updateRaidCountdown(elements);
@@ -26,33 +27,8 @@ function updateRaidCountdown(elements) {
 }
 
 function getNextDropDate(now, latestPublishedAt = null) {
-  const dropDays = [2, 5];
-  for (let offset = 0; offset <= 7; offset += 1) {
-    const candidate = new Date(now);
-    candidate.setDate(now.getDate() + offset);
-    candidate.setHours(9, 0, 0, 0);
-    if (
-      dropDays.includes(candidate.getDay()) &&
-      candidate > now &&
-      !isSameDropDate(candidate, latestPublishedAt, dropDays)
-    ) {
-      return candidate;
-    }
+  if (latestPublishedAt) {
+    return new Date(latestPublishedAt.getTime() + DROP_INTERVAL_MS);
   }
-
-  const fallback = new Date(now);
-  fallback.setDate(now.getDate() + 1);
-  fallback.setHours(9, 0, 0, 0);
-  return fallback;
-}
-
-function isSameDropDate(candidate, latestPublishedAt, dropDays) {
-  if (!latestPublishedAt || !dropDays.includes(latestPublishedAt.getDay())) {
-    return false;
-  }
-  return (
-    candidate.getFullYear() === latestPublishedAt.getFullYear() &&
-    candidate.getMonth() === latestPublishedAt.getMonth() &&
-    candidate.getDate() === latestPublishedAt.getDate()
-  );
+  return new Date(now.getTime() + DROP_INTERVAL_MS);
 }
