@@ -1,0 +1,42 @@
+<section class="partner-offers" id="partner-offers" aria-labelledby="partnerOffersTitle">
+  <header class="partner-offers__heading">
+    <span class="partner-offers__eyebrow">Partner offers</span>
+    <h2 id="partnerOffersTitle">More ways to save</h2>
+  </header>
+  <div class="partner-offers__marquee">
+    <div class="partner-offers__track">
+      <article class="cotton-carousel" data-cotton-carousel aria-label="Cotton On featured fashion">
+        <div class="cotton-carousel__slides">
+          <img class="is-active" src="assets/partners/cotton-on-slide-1.webp" alt="Cotton On winter sweats collection" loading="eager" />
+          <img src="assets/partners/cotton-on-slide-2.jpg" alt="Cotton On winter fashion collection" loading="lazy" />
+          <img src="assets/partners/cotton-on-slide-3.webp" alt="Cotton On women's tops collection" loading="lazy" />
+        </div>
+        <div class="cotton-carousel__shade"></div>
+        <img class="cotton-carousel__logo" src="assets/partners/cotton-on.ico" alt="Cotton On" />
+        <div class="cotton-carousel__copy"><strong>Cotton On</strong><span>Shop fashion &amp; everyday essentials</span><a href="https://tracking.affcoza.com/aff_c?offer_id=2066&amp;aff_id=26900" target="_blank" rel="sponsored noopener noreferrer">Shop now &rarr;</a></div>
+        <nav class="cotton-carousel__controls" aria-label="Cotton On slideshow controls">
+          <button type="button" data-cotton-previous aria-label="Previous Cotton On image">&lsaquo;</button>
+          <button type="button" data-cotton-next aria-label="Next Cotton On image">&rsaquo;</button>
+        </nav>
+      </article>
+      <button class="partner-banner partner-banner--tracker" data-open-vehicle-tracker type="button"><span class="partner-banner__copy"><strong>Vehicle Tracker</strong><span>Get a free, no-obligation quote</span></span><b>Request quote &rarr;</b></button>
+    </div>
+  </div>
+</section>
+
+<dialog class="partner-modal" id="vehicleTrackerModal" aria-labelledby="vehicleTrackerTitle">
+  <form class="partner-modal__card" id="vehicleTrackerForm">
+    <button class="partner-modal__close" id="closeVehicleTracker" type="button" aria-label="Close vehicle tracker quote form">&times;</button>
+    <span class="partner-offers__eyebrow">Partner quote</span>
+    <h2 id="vehicleTrackerTitle">Get a vehicle tracker quote</h2>
+    <p>Our vehicle tracking partner will contact you about available options.</p>
+    <div class="partner-modal__fields">
+      <label>First name<input name="firstName" autocomplete="given-name" minlength="2" maxlength="50" required /></label>
+      <label>Last name<input name="lastName" autocomplete="family-name" minlength="2" maxlength="50" required /></label>
+      <label class="partner-modal__wide">Mobile number<input name="phoneNumber" type="tel" inputmode="numeric" autocomplete="tel" placeholder="082 123 4567" pattern="(?:0|\+27)[0-9 ]{9,12}" required /></label>
+      <label class="partner-modal__consent partner-modal__wide"><input name="acceptTerms" type="checkbox" required /><span>I agree that LekkeDeal may send these details to its vehicle tracking partner so they can contact me about a quote.</span></label>
+    </div>
+    <button class="partner-offer__action partner-modal__submit" type="submit">Send quote request</button>
+    <p class="partner-modal__status" id="vehicleTrackerStatus" role="status" aria-live="polite"></p>
+  </form>
+</dialog>

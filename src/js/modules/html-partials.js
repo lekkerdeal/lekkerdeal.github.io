@@ -5,7 +5,7 @@ export async function loadHtmlPartials(root = document) {
   await Promise.all(
     partials.map(async (element) => {
       const partialPath = element.dataset.htmlPartial;
-      const response = await fetch(partialPath);
+      const response = await fetch(partialPath, { cache: "no-store" });
       if (!response.ok) {
         throw new Error(`Unable to load HTML partial: ${partialPath}`);
       }

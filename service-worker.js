@@ -1,4 +1,4 @@
-const CACHE_VERSION = "lekkedeal-v213";
+const CACHE_VERSION = "lekkedeal-v233";
 const APP_SHELL = [
     "./",
     "index.html",
@@ -15,12 +15,14 @@ const APP_SHELL = [
     "src/css/modules/interaction-and-responsive-fixes.css",
     "src/css/modules/reviews.css",
     "src/css/modules/authentication.css",
+    "src/css/modules/partner-offers.css",
     "src/js/dealCatalogApplication.js",
     "src/js/reviewsPageApplication.js",
     "src/js/api/client.js",
     "src/js/api/authentication-api.js",
     "src/js/api/saved-deals-api.js",
     "src/js/api/reviews-api.js",
+    "src/js/api/partner-offers-api.js",
     "src/js/dealFilteringWorker.js",
     "src/js/modules/application-shell.js",
     "src/js/modules/authentication-interface.js",
@@ -42,12 +44,14 @@ const APP_SHELL = [
     "src/js/modules/reviews-storage.js",
     "src/js/modules/reviews-rendering.js",
     "src/js/modules/private-submissions-interface.js",
+    "src/js/modules/partner-offers.js",
     "src/js/api/submissions-api.js",
     "src/components/icons.svg",
     "src/html/site-header.html",
     "src/html/reviews-header.html",
     "src/html/home-hero-and-stats.html",
     "src/html/deal-catalog.html",
+    "src/html/partner-offers.html",
     "src/html/site-footer.html",
     "src/html/deal-modals.html",
     "manifest.webmanifest",
@@ -63,6 +67,12 @@ const APP_SHELL = [
     "assets/pwa/maskable-512.png",
     "assets/logo.png",
     "assets/banner.png",
+    "assets/partners/cotton-on-offer.webp",
+    "assets/partners/cotton-on.ico",
+    "assets/partners/cotton-on-slide-1.webp",
+    "assets/partners/cotton-on-slide-2.jpg",
+    "assets/partners/cotton-on-slide-3.webp",
+    "assets/partners/vehicle-tracker-visual.png",
     "assets/no-image-lekkie.png",
     "assets/retailers/icons/builders.ico",
     "assets/retailers/icons/computer-mania.svg",
@@ -106,6 +116,11 @@ self.addEventListener("fetch", (event) => {
     const url = new URL(request.url);
     if (url.pathname.endsWith(DATA_URL)) {
         event.respondWith(networkFirstDeals(request));
+        return;
+    }
+
+    if (url.origin === self.location.origin && url.pathname.includes("/src/html/")) {
+        event.respondWith(networkFirst(request));
         return;
     }
 

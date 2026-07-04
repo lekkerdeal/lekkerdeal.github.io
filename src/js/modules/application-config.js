@@ -36,7 +36,6 @@ export const ALLOWED_PROVINCES = new Set(PROVINCE_OPTIONS);
 export const RETAILER_LOGO_PATHS = {
   Builders: "assets/retailers/icons/builders.ico",
   "Computer Mania": "assets/retailers/icons/computer-mania.svg",
-  DirectDeals: "assets/retailers/directdeals.svg",
   EveryMonday: "assets/retailers/icons/everymonday.jpg",
   ExpertStores: "assets/retailers/icons/expertstores.ico",
   FirstShop: "assets/retailers/icons/firstshop.png",

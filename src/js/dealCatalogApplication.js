@@ -83,6 +83,7 @@ import {
 } from "./modules/image-viewer.js";
 import { handleShareDeal } from "./modules/share.js";
 import { initPrivateSubmissionModals } from "./modules/private-submissions-interface.js";
+import { initializePartnerOffers } from "./modules/partner-offers.js";
 
 const state = {
   allDeals: [],
@@ -139,6 +140,7 @@ function initializeApplication() {
   initPrivateSubmissionModals({
     resolveDealById: (dealId) => state.dealById.get(dealId),
   });
+  initializePartnerOffers();
   initializePwaInstallation();
   initializeNetworkStatus();
   initializeCaptureState(state, els);
